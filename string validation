@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <stdbool.h>
+
+bool containsAlphanumeric(const char *str) {
+    while (*str) {
+        if (isalnum(*str)) {
+            return true;
+        }
+        str++;
+    }
+    return false;
+}
+
+bool containsAlphabetic(const char *str) {
+    while (*str) {
+        if (isalpha(*str)) {
+            return true;
+        }
+        str++;
+    }
+    return false;
+}
+
+bool containsDigit(const char *str) {
+    while (*str) {
+        if (isdigit(*str)) {
+            return true;
+        }
+        str++;
+    }
+    return false;
+}
+
+bool containsLowercase(const char *str) {
+    while (*str) {
+        if (islower(*str)) {
+            return true;
+        }
+        str++;
+    }
+    return false;
+}
+
+bool containsUppercase(const char *str) {
+    while (*str) {
+        if (isupper(*str)) {
+            return true;
+        }
+        str++;
+    }
+    return false;
+}
+
+int main() {
+    char str[100];
+    
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    
+    // Remove newline character if present
+    char *newline = strchr(str, '\n');
+    if (newline) {
+        *newline = '\0';
+    }
+    
+    printf("Contains alphanumeric: %s\n", containsAlphanumeric(str) ? "Yes" : "No");
+    printf("Contains alphabetic: %s\n", containsAlphabetic(str) ? "Yes" : "No");
+    printf("Contains digit: %s\n", containsDigit(str) ? "Yes" : "No");
+    printf("Contains lowercase: %s\n", containsLowercase(str) ? "Yes" : "No");
+    printf("Contains uppercase: %s\n", containsUppercase(str) ? "Yes" : "No");
+
+    return 0;
+}
