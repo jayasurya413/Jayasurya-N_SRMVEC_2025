@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <ctype.h>
+
+void swap_case(char *s) {
+    while (*s) {
+        if (islower(*s)) {
+            *s = toupper(*s);
+        }
+        else if (isupper(*s))
+            {
+            *s = tolower(*s);
+        }
+        s++;
+    }
+}
+
+int main() {
+    char str[100];
+    fgets(str, sizeof(str), stdin);
+
+    swap_case(str);
+    printf("%s", str);
+
+
+    return 0;
+}
